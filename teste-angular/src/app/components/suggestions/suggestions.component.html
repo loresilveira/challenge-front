@@ -1,0 +1,25 @@
+<div class="principal" *ngIf="users">
+    <div class="mb-3">
+        <h5 >Suggestions 4you</h5>
+    </div>
+    <main >
+    <div class="row row-cols-1 row-cols-md-5 mb-5 text-center">
+        <div *ngFor="let item of users" class="col">
+            <div class="card" style="width: 8rem;">
+            <img [src]="item.picture?.medium" class="card-img-top, rounded-circle border" alt="...">
+            <div class="card-body, text-center mt-2">
+                <h5 class="card-title">{{item.name.first}} {{item.name.last}}</h5>
+                <p class="card-text">{{item.location.city}} {{item.location.city}}</p>
+                <a href="#" class="btn btn-primary" (click)="follow(item)">Follow</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    </main>
+</div>
+
+
+
+
+
+

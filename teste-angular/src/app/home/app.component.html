@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+        <button *ngIf="countFollowing > 0" type = "button" class = "btn btn-outline-light" (click)="collapseFollowing()"
+          [attr.aria-extended]="!isCollapsed" aria-controls = "collapseExample">Following {{countFollowing}} user(s)
+        </button>
+      </div>      
+    </div>
+  </nav>
+  <div id="collapseExample" [ngbCollapse]="isCollapsed">
+        <app-following  [users]="listFollowing" [countFollowing]="countFollowing" (emitFollow)="unfollow($event)"></app-following>
+  </div>
+  <app-user [user]="user" (emitFollow)="follow($event)"></app-user>
+  <app-suggestions [listFollowing]="listFollowing" (emitFollow)="follow($event)"></app-suggestions>
+</div>

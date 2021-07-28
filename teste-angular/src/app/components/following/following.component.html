@@ -1,0 +1,24 @@
+<div>
+    <main *ngIf="users">
+        <div class="container d-flex justify-content-end">
+          <h3 class="text-right">following {{countFollowing}} users</h3>
+          <table class="table table-condensed table-responsive" style="width: 40%;">
+            <tbody>
+              <tr *ngFor=" let item of users">
+                <td class="align-middle text-center col-xs-2 col-sm-2"><img [src]="item.picture?.thumbnail" class="card-img-top, rounded-circle"></td>
+                <td>
+                  <tr><h5 class="card-title">{{item.name.first}} {{item.name.last}}</h5></tr>
+                  <tr><h6 class="card-title">{{item.location.city}} {{item.location.city}}</h6></tr>
+                </td>          
+                <td class="align-middle text-center col-xs-2 col-sm-2"><a href="#" class="btn btn-danger" (click)="unfollowButton(item)">Unfollow</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </main>
+</div>
+
+
+
+
+

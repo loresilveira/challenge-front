@@ -1,0 +1,68 @@
+<div *ngIf="user">
+    <div class="row d-flex justify-content-center bg-ligth">
+        <div class="row d-flex justify-content-center">
+            <img [src]="user.picture?.large" class="img-fluid border fundo" alt="fundo">
+        </div>
+        <div class="row d-flex justify-content-center">
+            <img [src]="user.picture?.medium" class="img-fluid img-thumbnail avatar z-index-2" alt="Responsive image">
+        </div>
+        <div class="col-6 col-md-1 text-end fw-bold">
+          {{ user.name.first }}
+        </div>
+        <div class="col-6 col-md-1 text-start fw-bold">
+            {{ user.name.last }}
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-6 col-md-2 text-end">
+              {{ user.location.city }}
+            </div>
+            <div class="col-6 col-md-2 text-start">
+                {{ user.location.country }}
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="row d-flex justify-content-center mt-2">
+        <div class="col-6 col-md-3 text-end">
+            <button *ngIf="!isFollowing" type="button" class="btn btn-primary" (click)="followButton(user)">{{followTextButton}}</button>
+            <button *ngIf="isFollowing" type="button" class="btn btn-outline-success" (click)="followButton(user)">{{followTextButton}}</button>
+        </div>
+        <div class="col-6 col-md-3 text-start">
+            <button type="button" class="btn btn-outline-secondary" (click)="tryNextOneButton()">{{tryNextOneTextButton}}</button>
+        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center card-info">
+        <div class="col-4 text-start border">
+            <h4> Personal Info</h4>
+            <div class="row">
+               <p> born at: {{user.nat}}</p>
+               <p> age: {{user.registered?.age}} years old</p>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-l dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    see more
+                </button>
+            </div>
+        </div>
+        <div class="col-4 text-start border">
+            <h4> Contact Info</h4>
+            <div class="row">
+               <p> email: {{user.email}}</p>
+               <p> phone: {{user.phone}}</p>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-l dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    see more
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Carregando </p>  
+    </ngx-spinner> 
+</div>
